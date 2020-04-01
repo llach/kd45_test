@@ -1,0 +1,18 @@
+<library path="src">
+  <class name="KD45Test" type="kd45_test.kd45_test.KD45Test"
+         base_class_type="rqt_gui_py::Plugin">
+    <description>
+      A GUI plugin to ...
+    </description>
+    <qtgui>
+      <group>
+        <label>New Group</label>
+        <icon type="theme">folder</icon>
+        <statustip>Plugins related to...</statustip>
+      </group>
+      <label>RQT Plugin kd45_test</label>
+      <icon type="theme">image-x-generic</icon>
+      <statustip>A GUI plugin to ...</statustip>
+    </qtgui>
+  </class>
+</library>

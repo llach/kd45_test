@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <node pkg="kd45_test" type="kd45_test" name="kd45_test_node"
+        output="screen">
+  </node>
+</launch>
