@@ -66,7 +66,17 @@ class KD45Test(Plugin):
 
         self.traj_ac = None
 
-        #btn_frx_(max|thresh|zero) check_pub
+        import argparse
+        parser = argparse.ArgumentParser()
+        parser.add_argument('--publish', dest='publish', action='store_true')
+        parser.add_argument('--no-publish', dest='publish', action='store_false')
+        parser.set_defaults(publish=False)
+
+        args, _ = parser.parse_known_args(context.argv())
+
+        self._widget.check_pub.setChecked(args.publish)
+
+        # register button signals
         self._widget.btn_close.clicked.connect(self.on_btn_close)
         self._widget.btn_open.clicked.connect(self.on_btn_open)
 
@@ -162,7 +172,6 @@ class KD45Test(Plugin):
         rospy.loginfo("KD45Test plugin shutting down ...")
         self.active = False
         self.pub_thread.join()
-        self.pub.unregister()
         rospy.loginfo("KD45Test plugin exited.")
 
     def save_settings(self, plugin_settings, instance_settings):

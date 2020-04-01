@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <node pkg="kd45_test" type="kd45_test" name="kd45_test_node"
-        output="screen">
-  </node>
+<arg name="sim" default="true" />
+
+<group unless="$(arg sim)">
+    <node pkg="rqt_gui" type="rqt_gui" name="rqt_gui_kd45" output="screen" args="--standalone kd45_test --args --no-publish" />
+</group>
+
+<group if="$(arg sim)">
+    <node pkg="rqt_gui" type="rqt_gui" name="rqt_gui_kd45_sim" output="screen" args="--standalone kd45_test --args --publish" />
+</group>
+
 </launch>
